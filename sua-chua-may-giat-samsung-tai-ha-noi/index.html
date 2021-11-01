@@ -56,14 +56,14 @@ img.emoji {
 function disableEnterKey(e)
 {
 	var elemtype = e.target.tagName;
-	
+
 	elemtype = elemtype.toUpperCase();
-	
+
 	if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED")
 	{
 		elemtype = 'TEXT';
 	}
-	
+
 	if (e.ctrlKey){
      var key;
      if(window.event)
@@ -86,61 +86,61 @@ function disableEnterKey(e)
 function wccp_free_iscontenteditable(e)
 {
 	var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
-  	
+
 	var target = e.target || e.srcElement;
 
 	var elemtype = e.target.nodeName;
-	
+
 	elemtype = elemtype.toUpperCase();
-	
+
 	var iscontenteditable = "false";
-		
+
 	if(typeof target.getAttribute!="undefined" ) iscontenteditable = target.getAttribute("contenteditable"); // Return true or false as string
-	
+
 	var iscontenteditable2 = false;
-	
+
 	if(typeof target.isContentEditable!="undefined" ) iscontenteditable2 = target.isContentEditable; // Return true or false as boolean
 
 	if(target.parentElement.isContentEditable) iscontenteditable2 = true;
-	
+
 	if (iscontenteditable == "true" || iscontenteditable2 == true)
 	{
 		if(typeof target.style!="undefined" ) target.style.cursor = "text";
-		
+
 		return true;
 	}
 }
 
 ////////////////////////////////////
 function disable_copy(e)
-{	
+{
 	var e = e || window.event; // also there is no e.target property in IE. instead IE uses window.event.srcElement
-	
+
 	var elemtype = e.target.tagName;
-	
+
 	elemtype = elemtype.toUpperCase();
-	
+
 	if (elemtype == "TEXT" || elemtype == "TEXTAREA" || elemtype == "INPUT" || elemtype == "PASSWORD" || elemtype == "SELECT" || elemtype == "OPTION" || elemtype == "EMBED")
 	{
 		elemtype = 'TEXT';
 	}
-	
+
 	if(wccp_free_iscontenteditable(e)) return true;
-	
+
 	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-	
+
 	var checker_IMG = '';
 	if (elemtype == "IMG" && checker_IMG == 'checked' && e.detail >= 2) {show_wpcp_message(alertMsg_IMG);return false;}
 	if (elemtype != "TEXT")
 	{
 		if (smessage !== "" && e.detail == 2)
 			show_wpcp_message(smessage);
-		
+
 		if (isSafari)
 			return true;
 		else
 			return false;
-	}	
+	}
 }
 
 //////////////////////////////////////////
@@ -155,7 +155,7 @@ function disable_copy_ie()
 	{
 		return false;
 	}
-}	
+}
 function reEnable()
 {
 	return true;
@@ -172,11 +172,11 @@ function disableSelection(target)
     //For IE This code will work
     if (typeof target.onselectstart!="undefined")
     target.onselectstart = disable_copy_ie;
-    
+
     //For Firefox This code will work
     else if (typeof target.style.MozUserSelect!="undefined")
     {target.style.MozUserSelect="none";}
-    
+
     //All other  (ie: Opera) This code will work
     else
     target.onmousedown=function(){return false}
@@ -196,11 +196,11 @@ function touchstart(e) {
   // also there is no e.target property in IE.
   // instead IE uses window.event.srcElement
   	var target = e.target || e.srcElement;
-	
+
 	elemtype = window.event.srcElement.nodeName;
-	
+
 	elemtype = elemtype.toUpperCase();
-	
+
 	if(!wccp_pro_is_passive()) e.preventDefault();
 	if (!timer) {
 		timer = setTimeout(onlongtouch, touchduration);
@@ -217,8 +217,8 @@ function touchend() {
 }
 
 onlongtouch = function(e) { //this will clear the current selection if anything selected
-	
-	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "EMBED" && elemtype != "OPTION")	
+
+	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "EMBED" && elemtype != "OPTION")
 	{
 		if (window.getSelection) {
 			if (window.getSelection().empty) {  // Chrome
@@ -233,7 +233,7 @@ onlongtouch = function(e) { //this will clear the current selection if anything 
 	}
 };
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
     window.addEventListener("touchstart", touchstart, false);
     window.addEventListener("touchend", touchend, false);
 });
@@ -298,7 +298,7 @@ flex-grow"><ul class="header-nav header-nav-main nav nav-left  nav-size-large na
 <input type="hidden" name="post_type" value="product" /></div><div class="flex-col">
 <button type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0">
 <i class="icon-search" ></i>			</button></div></div><div class="live-search-results text-left z-top"></div></form></div></div></li></ul></div></div></div><div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div></div></header><div class="page-title blog-featured-title featured-title no-overflow"><div class="page-title-bg fill"><div class="title-bg fill bg-fill bg-top" style="background-image: url('/wp-content/uploads/2021/08/tai-xuong-1.jpg');" data-parallax-fade="true" data-parallax="-2" data-parallax-background data-parallax-container=".page-title"></div><div class="title-overlay fill" style="background-color: rgba(0,0,0,.5)"></div></div><div class="page-title-inner container  flex-row  dark is-large" style="min-height: 300px"><div class="flex-col flex-center text-center"><h6 class="entry-category is-xsmall">
-<a href="/chuyen-muc/dich-vu-sua-chua/sua-may-giat/" rel="category tag">SỬA MÁY GIẶT</a></h6><h1 class="entry-title">SỬA CHỮA MÁY GIẶT SAMSUNG TẠI HÀ NỘI</h1><div class="entry-divider is-divider small"></div></div></div></div><main id="main" class=""><div id="content" class="blog-wrapper blog-single page-wrapper"><div class="row row-large row-divided "><div class="large-9 col"><article id="post-3339" class="post-3339 post type-post status-publish format-standard has-post-thumbnail hentry category-sua-may-giat"><div class="article-inner "><div class="entry-content single-page"><div class="main-tit"><blockquote><h2><span style="color: #0000ff;"><span style="font-size: 14.4px;">Tự hào khi gọi chúng tôi là “thiên sứ bảo hộ cho máy giặt của bạn” chúng tôi luôn cố gắng hết sức để đúng với tên gọi đó của mình. Với một đội ngũ những chuyên viên, kỹ thuật viên ưu tú có tay nghề lâu năm trong việc </span><strong style="font-size: 14.4px;">sửa chữa máy giặt samsung</strong><span style="font-size: 14.4px;">, chúng tôi cam kết sẽ sửa mọi lỗi mà máy giặt của bạn mắc phải, để máy giặt luôn tốt như lúc mới mua.</span></span></h2></blockquote></div><div class="content"><blockquote><p><span style="color: #0000ff;"><strong>Trung tâm bảo hành máy giặt samsung tại nhà</strong>. Quý khách hàng đang sử dụng Máy giặt mang thương hiệu Samsung&#8230; khi bị sự cố vui lòng liên hệ<span style="color: #ed1c24;"><strong> <span style="color: #ed1c24;">0984</span> 133 362</strong></span> Trung tâm bảo hành Samsung để được hỗ trợ sửa chữa ngay lập tức. Trung tâm samsung hỗ trợ vụ phụ 24/7 tận nhà.</span></p></blockquote><p><img src="http://www.trungtamsuachuanguyenkim.vn/upload/images/vn-feature-combo-wd17j7825kp-wd17j7825kp-sv-60074686.jpeg" alt="sửa máy giặt samsung tại nhà hcm" /></p><p><em>kỷ thuật viên đến tận nhà sửa máy giặt samsung</em></p><p>&nbsp;</p><h2><span style="color: #0000ff;"><strong>Những ưu điểm của chúng tôi: </strong></span></h2><ul><li>Chúng tôi sẽ có mặt ngay trong vòng 15 – 30 phút kể từ khi bạn gọi để có thể nhanh chóng kiểm tra và sửa chữa ngay cho máy giặt của bạn.</li><li>Trung tâm tự tin khi nhận định rằng mình là dịch vụ uy tín, 100% cam kết sửa chữa được nhưng có mức phí rẻ nhất trong thị trường.</li><li>Quý khách có thể kiểm tra tem bảo hành, nguồn gốc của linh kiện (xuất  xứ chính hãng) trước khi thợ sửa chữa để an tâm về dịch vụ.</li><li>Chúng tôi cam kết chỉ thu tiền khi máy giặt đã hoạt động lại bình thường.</li><li>Chúng tôi sẽ liệt kê từng khoảng phí và cam đoan sẽ không có phí phát sinh nào thêm ngoại trừ tiền công của thợ sửa.</li></ul><p>&nbsp;</p><p><img src="http://trungtamsuachuanguyenkim.vn/upload/images/sua-may-giat-tai-nha-3.jpg" alt="dịch vụ sửa máy giặt samsung tạ nhà" /></p><p><em>máy giặt samsung hỏng gây phiền toái cho gia đình bạn</em></p><p>&nbsp;</p><h2><span style="color: #0000ff;"><strong>Dịch vụ sửa chữa bảo hành máy giặt samsung</strong></span></h2><p>&nbsp;</p><p>Luôn khắc phục lỗi và nguồn gốc lỗi một cách triệt để nhất để khách hàng an tâm và sử dụng sản phẩm, chúng tôi cam đoan về chất lượng sửa chữa cũng như bảo hành, trì dưỡng.</p><p>&nbsp;</p><p>Cùng với hệ thống trạm <strong>bảo hành sửa chữa máy giặt Samsung</strong> nằm trải đều khắp thành phố chúng tôi đảm bảo phục vụ quý khách nhanh nhất, hiệu quả nhất !</p><p>&gt;&gt; Tham khảo :</p><p><span style="color: #0000ff;"><strong>&lt;&lt; Hãy đến với TRUNG TÂM BẢO HÀNH MÁY GIẶT SAMSUNG TẠI NHÀ của chúng tôi để được phục vụ tốt nhất.&gt;&gt;</strong></span></p><p>Tham khảo:<span style="color: #ed1c24;"> <strong><a style="color: #ed1c24;" href="/sua-may-giat-sanyo-tai-ha-noi/" rel="dofollow">Dịch vụ sửa máy giặt Sanyo</a></strong></span></p><p><img src="http://www.trungtamsuachuanguyenkim.vn/upload/images/vn-feature-combo-wd17j7825kp-wd17j7825kp-sv-60074692.jpeg" alt="máy giặt samsung không giặt" /></p><p><em>Khắt phục nhanh chóng máy giặt tại nhà</em></p><h2><span style="color: #0000ff;">Gọi đến trung tâm samsung để được tư vấn sửa chữa tận nhà</span></h2><ul><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không có điện nguồn</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung  điều khiển không được</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không  không xả nước</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không sấy</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung invetrer không giặt</span></li></ul><blockquote><p><span style="color: #0000ff;"><strong>Ngoài các sự cố đã liệt kê ở trên thợ kỹ thuật  máy giặt tại nhà hầu hết sửa được tất cả các lỗi máy giặt hiện nay như: </strong></span></p></blockquote><ol><li><blockquote><p>Máy hoàn toàn không hoạt động ?</p></blockquote></li><li><blockquote><p>Nước không chảy vào thùng giặt ?</p></blockquote></li><li><blockquote><p>Khi máy giặt, không mở được cửa</p></blockquote></li><li><blockquote><p>khi máy giặt hoạt động có tiếng kêu.</p></blockquote></li><li><blockquote><p>Thời gian xả nước quá lâu ?</p></blockquote></li><li><blockquote><p>Máy giặt chớp đèn báo lổi liên tục ?</p></blockquote></li><li><blockquote><p>Máy giặt cấp nước ở tiến trình vắt ?</p></blockquote></li><li><blockquote><p>Máy giặt hoàn toàn không có điện ?</p></blockquote></li><li><blockquote><p>Máy giặt được nhưng không sấy ?</p></blockquote></li><li><blockquote><p>Thời gian giặt quá lâu?</p></blockquote></li><li><blockquote><p>Nước không chảy ra khỏi ống xả.</p></blockquote></li><li><blockquote><p>Máy có tiếng kêu lạch cạch?</p></blockquote></li><li><blockquote><p>Máy giặt cấp nước khi giặt song?</p></blockquote></li><li><blockquote><p>Nước còn trong lòng giặt.</p></blockquote></li><li><blockquote><p>Khi máy giặt bị rò điện?</p></blockquote></li><li><blockquote><p>Khi máy giặt xả nước liên tục?</p></blockquote></li><li><blockquote><p>Khi máy giặt kêu to, rung mạnh?</p></blockquote></li></ol><p>Nếu bạn gặp các sự cố về máy giặt Samsung thì hãy gọi cho chúng tôi, đừng nên kéo dài để tình trạng máy giặt Samsung sẽ hư hỏng nặng thêm.</p><p><span style="color: #0000ff;"><strong>Mặt khác chúng tôi còn chuyên sửa máy giặt tại nhà cho tất cả các hãng máy giặt sau:</strong></span><strong> <span style="color: #ed1c24;">máy giặt samsung, Toshiba, Sanyo, Hitachi, Sharp, LG, Panasonic, Electrolux, National, máy giặt cửa ngang…</span></strong></p><p>Xem thêm:<strong> <span style="color: #ed1c24;"><a style="color: #ed1c24;" href="/sua-may-giat-toshiba-tai-ha-noi/" rel="dofollow">Sửa máy giặt Toshiba tại nhà giá rẻ</a></span></strong></p><h2><span style="color: #ed1c24;"><strong style="font-size: 23.04px;">Hotline : 0984 133 362</strong></span></h2></div><div class="blog-share text-center"><div class="is-divider medium"></div><div class="social-icons share-icons share-row relative" ><a href="whatsapp://send?text=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I - /sua-chua-may-giat-samsung-tai-ha-noi/" data-action="share/whatsapp/share" class="icon button circle is-outline tooltip whatsapp show-for-medium" title="Share on WhatsApp"><i class="icon-phone"></i></a><a href="//www.facebook.com/sharer.php?u=/sua-chua-may-giat-samsung-tai-ha-noi/" data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip facebook" title="Share on Facebook"><i class="icon-facebook" ></i></a><a href="//twitter.com/share?url=/sua-chua-may-giat-samsung-tai-ha-noi/" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip twitter" title="Share on Twitter"><i class="icon-twitter" ></i></a><a href="/cdn-cgi/l/email-protection#5c393228392e2533292e1c3d38382e392f2f34392e39723f3331632f293e36393f28610f79196d791e1e791d1f1d796e6c1f1479196d791e1e791d191d796e6c11791f6f79646d05796e6c1b1579196d791e1d791e6a08796e6c0f1d110f09121b796e6c0879196d791e1d791d6c15796e6c14791f6f79646c796e6c1279196d791e1e796564157a3d312c673e333825611f34393f37796e6c2834352f796e6c33292866796e6c3428282c2f66737338353932303d323434333d323b382933323b723f3331732f293d713f34293d71313d25713b353d28712f3d312f29323b71283d3571343d7132333573" rel="nofollow" class="icon button circle is-outline tooltip email" title="Email to a Friend"><i class="icon-envelop" ></i></a><a href="//pinterest.com/pin/create/button/?url=/sua-chua-may-giat-samsung-tai-ha-noi/&amp;media=/wp-content/uploads/2021/08/tai-xuong-1.jpg&amp;description=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip pinterest" title="Pin on Pinterest"><i class="icon-pinterest" ></i></a><a href="//www.linkedin.com/shareArticle?mini=true&url=/sua-chua-may-giat-samsung-tai-ha-noi/&title=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;"  rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip linkedin" title="Share on LinkedIn"><i class="icon-linkedin" ></i></a></div></div></div></div></article><div id="comments" class="comments-area"></div></div><div class="post-sidebar large-3 col"><div id="secondary" class="widget-area " role="complementary"><aside id="flatsome_recent_posts-2" class="widget flatsome_recent_posts">		<span class="widget-title "><span>Bài viết mới</span></span><div class="is-divider small"></div><ul><li class="recent-blog-posts-li"><div class="flex-row recent-blog-posts align-top pt-half pb-half"><div class="flex-col mr-half"><div class="badge post-date  badge-outline"><div class="badge-inner bg-fill" style="background: url(/wp-content/uploads/2021/08/sua-may-giat-11-min-min.jpg); border:0;"></div></div></div><div class="flex-col flex-grow">
+<a href="/chuyen-muc/dich-vu-sua-chua/sua-may-giat/" rel="category tag">SỬA MÁY GIẶT</a></h6><h1 class="entry-title">SỬA CHỮA MÁY GIẶT SAMSUNG TẠI HÀ NỘI</h1><div class="entry-divider is-divider small"></div></div></div></div><main id="main" class=""><div id="content" class="blog-wrapper blog-single page-wrapper"><div class="row row-large row-divided "><div class="large-9 col"><article id="post-3339" class="post-3339 post type-post status-publish format-standard has-post-thumbnail hentry category-sua-may-giat"><div class="article-inner "><div class="entry-content single-page"><div class="main-tit"><blockquote><h2><span style="color: #0000ff;"><span style="font-size: 14.4px;">Tự hào khi gọi chúng tôi là “thiên sứ bảo hộ cho máy giặt của bạn” chúng tôi luôn cố gắng hết sức để đúng với tên gọi đó của mình. Với một đội ngũ những chuyên viên, kỹ thuật viên ưu tú có tay nghề lâu năm trong việc </span><strong style="font-size: 14.4px;">sửa chữa máy giặt samsung</strong><span style="font-size: 14.4px;">, chúng tôi cam kết sẽ sửa mọi lỗi mà máy giặt của bạn mắc phải, để máy giặt luôn tốt như lúc mới mua.</span></span></h2></blockquote></div><div class="content"><blockquote><p><span style="color: #0000ff;"><strong>Trung tâm bảo hành máy giặt samsung tại nhà</strong>. Quý khách hàng đang sử dụng Máy giặt mang thương hiệu Samsung&#8230; khi bị sự cố vui lòng liên hệ<span style="color: #ed1c24;"><strong> <span style="color: #ed1c24;">0982 181 000</strong></span> Trung tâm bảo hành Samsung để được hỗ trợ sửa chữa ngay lập tức. Trung tâm samsung hỗ trợ vụ phụ 24/7 tận nhà.</span></p></blockquote><p><img src="http://www.trungtamsuachuanguyenkim.vn/upload/images/vn-feature-combo-wd17j7825kp-wd17j7825kp-sv-60074686.jpeg" alt="sửa máy giặt samsung tại nhà hcm" /></p><p><em>kỷ thuật viên đến tận nhà sửa máy giặt samsung</em></p><p>&nbsp;</p><h2><span style="color: #0000ff;"><strong>Những ưu điểm của chúng tôi: </strong></span></h2><ul><li>Chúng tôi sẽ có mặt ngay trong vòng 15 – 30 phút kể từ khi bạn gọi để có thể nhanh chóng kiểm tra và sửa chữa ngay cho máy giặt của bạn.</li><li>Trung tâm tự tin khi nhận định rằng mình là dịch vụ uy tín, 100% cam kết sửa chữa được nhưng có mức phí rẻ nhất trong thị trường.</li><li>Quý khách có thể kiểm tra tem bảo hành, nguồn gốc của linh kiện (xuất  xứ chính hãng) trước khi thợ sửa chữa để an tâm về dịch vụ.</li><li>Chúng tôi cam kết chỉ thu tiền khi máy giặt đã hoạt động lại bình thường.</li><li>Chúng tôi sẽ liệt kê từng khoảng phí và cam đoan sẽ không có phí phát sinh nào thêm ngoại trừ tiền công của thợ sửa.</li></ul><p>&nbsp;</p><p><img src="http://trungtamsuachuanguyenkim.vn/upload/images/sua-may-giat-tai-nha-3.jpg" alt="dịch vụ sửa máy giặt samsung tạ nhà" /></p><p><em>máy giặt samsung hỏng gây phiền toái cho gia đình bạn</em></p><p>&nbsp;</p><h2><span style="color: #0000ff;"><strong>Dịch vụ sửa chữa bảo hành máy giặt samsung</strong></span></h2><p>&nbsp;</p><p>Luôn khắc phục lỗi và nguồn gốc lỗi một cách triệt để nhất để khách hàng an tâm và sử dụng sản phẩm, chúng tôi cam đoan về chất lượng sửa chữa cũng như bảo hành, trì dưỡng.</p><p>&nbsp;</p><p>Cùng với hệ thống trạm <strong>bảo hành sửa chữa máy giặt Samsung</strong> nằm trải đều khắp thành phố chúng tôi đảm bảo phục vụ quý khách nhanh nhất, hiệu quả nhất !</p><p>&gt;&gt; Tham khảo :</p><p><span style="color: #0000ff;"><strong>&lt;&lt; Hãy đến với TRUNG TÂM BẢO HÀNH MÁY GIẶT SAMSUNG TẠI NHÀ của chúng tôi để được phục vụ tốt nhất.&gt;&gt;</strong></span></p><p>Tham khảo:<span style="color: #ed1c24;"> <strong><a style="color: #ed1c24;" href="/sua-may-giat-sanyo-tai-ha-noi/" rel="dofollow">Dịch vụ sửa máy giặt Sanyo</a></strong></span></p><p><img src="http://www.trungtamsuachuanguyenkim.vn/upload/images/vn-feature-combo-wd17j7825kp-wd17j7825kp-sv-60074692.jpeg" alt="máy giặt samsung không giặt" /></p><p><em>Khắt phục nhanh chóng máy giặt tại nhà</em></p><h2><span style="color: #0000ff;">Gọi đến trung tâm samsung để được tư vấn sửa chữa tận nhà</span></h2><ul><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không có điện nguồn</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung  điều khiển không được</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không  không xả nước</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung không sấy</span></li><li><span style="color: #ed1c24;">Sửa máy giặt Samsung invetrer không giặt</span></li></ul><blockquote><p><span style="color: #0000ff;"><strong>Ngoài các sự cố đã liệt kê ở trên thợ kỹ thuật  máy giặt tại nhà hầu hết sửa được tất cả các lỗi máy giặt hiện nay như: </strong></span></p></blockquote><ol><li><blockquote><p>Máy hoàn toàn không hoạt động ?</p></blockquote></li><li><blockquote><p>Nước không chảy vào thùng giặt ?</p></blockquote></li><li><blockquote><p>Khi máy giặt, không mở được cửa</p></blockquote></li><li><blockquote><p>khi máy giặt hoạt động có tiếng kêu.</p></blockquote></li><li><blockquote><p>Thời gian xả nước quá lâu ?</p></blockquote></li><li><blockquote><p>Máy giặt chớp đèn báo lổi liên tục ?</p></blockquote></li><li><blockquote><p>Máy giặt cấp nước ở tiến trình vắt ?</p></blockquote></li><li><blockquote><p>Máy giặt hoàn toàn không có điện ?</p></blockquote></li><li><blockquote><p>Máy giặt được nhưng không sấy ?</p></blockquote></li><li><blockquote><p>Thời gian giặt quá lâu?</p></blockquote></li><li><blockquote><p>Nước không chảy ra khỏi ống xả.</p></blockquote></li><li><blockquote><p>Máy có tiếng kêu lạch cạch?</p></blockquote></li><li><blockquote><p>Máy giặt cấp nước khi giặt song?</p></blockquote></li><li><blockquote><p>Nước còn trong lòng giặt.</p></blockquote></li><li><blockquote><p>Khi máy giặt bị rò điện?</p></blockquote></li><li><blockquote><p>Khi máy giặt xả nước liên tục?</p></blockquote></li><li><blockquote><p>Khi máy giặt kêu to, rung mạnh?</p></blockquote></li></ol><p>Nếu bạn gặp các sự cố về máy giặt Samsung thì hãy gọi cho chúng tôi, đừng nên kéo dài để tình trạng máy giặt Samsung sẽ hư hỏng nặng thêm.</p><p><span style="color: #0000ff;"><strong>Mặt khác chúng tôi còn chuyên sửa máy giặt tại nhà cho tất cả các hãng máy giặt sau:</strong></span><strong> <span style="color: #ed1c24;">máy giặt samsung, Toshiba, Sanyo, Hitachi, Sharp, LG, Panasonic, Electrolux, National, máy giặt cửa ngang…</span></strong></p><p>Xem thêm:<strong> <span style="color: #ed1c24;"><a style="color: #ed1c24;" href="/sua-may-giat-toshiba-tai-ha-noi/" rel="dofollow">Sửa máy giặt Toshiba tại nhà giá rẻ</a></span></strong></p><h2><span style="color: #ed1c24;"><strong style="font-size: 23.04px;">Hotline : 0982 181 000</strong></span></h2></div><div class="blog-share text-center"><div class="is-divider medium"></div><div class="social-icons share-icons share-row relative" ><a href="whatsapp://send?text=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I - /sua-chua-may-giat-samsung-tai-ha-noi/" data-action="share/whatsapp/share" class="icon button circle is-outline tooltip whatsapp show-for-medium" title="Share on WhatsApp"><i class="icon-phone"></i></a><a href="//www.facebook.com/sharer.php?u=/sua-chua-may-giat-samsung-tai-ha-noi/" data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip facebook" title="Share on Facebook"><i class="icon-facebook" ></i></a><a href="//twitter.com/share?url=/sua-chua-may-giat-samsung-tai-ha-noi/" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip twitter" title="Share on Twitter"><i class="icon-twitter" ></i></a><a href="/cdn-cgi/l/email-protection#5c393228392e2533292e1c3d38382e392f2f34392e39723f3331632f293e36393f28610f79196d791e1e791d1f1d796e6c1f1479196d791e1e791d191d796e6c11791f6f79646d05796e6c1b1579196d791e1d791e6a08796e6c0f1d110f09121b796e6c0879196d791e1d791d6c15796e6c14791f6f79646c796e6c1279196d791e1e796564157a3d312c673e333825611f34393f37796e6c2834352f796e6c33292866796e6c3428282c2f66737338353932303d323434333d323b382933323b723f3331732f293d713f34293d71313d25713b353d28712f3d312f29323b71283d3571343d7132333573" rel="nofollow" class="icon button circle is-outline tooltip email" title="Email to a Friend"><i class="icon-envelop" ></i></a><a href="//pinterest.com/pin/create/button/?url=/sua-chua-may-giat-samsung-tai-ha-noi/&amp;media=/wp-content/uploads/2021/08/tai-xuong-1.jpg&amp;description=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip pinterest" title="Pin on Pinterest"><i class="icon-pinterest" ></i></a><a href="//www.linkedin.com/shareArticle?mini=true&url=/sua-chua-may-giat-samsung-tai-ha-noi/&title=S%E1%BB%ACA%20CH%E1%BB%AEA%20M%C3%81Y%20GI%E1%BA%B6T%20SAMSUNG%20T%E1%BA%A0I%20H%C3%80%20N%E1%BB%98I" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;"  rel="noopener noreferrer nofollow" target="_blank" class="icon button circle is-outline tooltip linkedin" title="Share on LinkedIn"><i class="icon-linkedin" ></i></a></div></div></div></div></article><div id="comments" class="comments-area"></div></div><div class="post-sidebar large-3 col"><div id="secondary" class="widget-area " role="complementary"><aside id="flatsome_recent_posts-2" class="widget flatsome_recent_posts">		<span class="widget-title "><span>Bài viết mới</span></span><div class="is-divider small"></div><ul><li class="recent-blog-posts-li"><div class="flex-row recent-blog-posts align-top pt-half pb-half"><div class="flex-col mr-half"><div class="badge post-date  badge-outline"><div class="badge-inner bg-fill" style="background: url(/wp-content/uploads/2021/08/sua-may-giat-11-min-min.jpg); border:0;"></div></div></div><div class="flex-col flex-grow">
 <a href="/sua-may-giat-nhap-khau-chau-au/" title="Sửa Máy Giặt Nhập Khẩu Châu Âu">Sửa Máy Giặt Nhập Khẩu Châu Âu</a>
 <span class="post_comments op-7 block is-xsmall"><span>Chức năng bình luận bị tắt<span class="screen-reader-text"> ở Sửa Máy Giặt Nhập Khẩu Châu Âu</span></span></span></div></div></li><li class="recent-blog-posts-li"><div class="flex-row recent-blog-posts align-top pt-half pb-half"><div class="flex-col mr-half"><div class="badge post-date  badge-outline"><div class="badge-inner bg-fill" style="background: url(/wp-content/uploads/2021/09/z2773980037526_9f2c6ec3ca541add563de2d2bf9ca9d6-min_optimized.jpg); border:0;"></div></div></div><div class="flex-col flex-grow">
 <a href="/sua-chua-may-say-bosch-loi-e90/" title="SỬA CHỮA MÁY SẤY BOSCH LỖI E90">SỬA CHỮA MÁY SẤY BOSCH LỖI E90</a>
